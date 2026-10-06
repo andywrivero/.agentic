@@ -1,19 +1,19 @@
 # Java Member-Ordering Prompts
 
-Use the java-member-ordering skill to place Java members consistently. Broad reorders must be requested or clearly in scope.
+Copy one template, fill in the brackets, and paste it. Each one names its skill so the skill loads.
 
 ## Add or change a member
 
-Make this change to [type]: [requested change]. Place changed members according to the skill; avoid unrelated reordering.
+[Describe the change] in [type]. Use the java-member-ordering skill to place new or changed members. Do not move other members.
 
 ## Create a type
 
-Create [class/interface/enum] for [responsibility and API]. Follow the skill's ordering and the project's conventions.
+Create [class/interface/enum/record] [Name] in [package] that [responsibility and public API]. Use the java-member-ordering skill for member order.
 
 ## Reorder a type
 
-Reorder [type/file] according to the skill. Preserve all member bodies, signatures, modifiers, annotations, and behavior.
+Use the java-member-ordering skill to reorder [type/file]. Move members only. Do not change bodies, signatures, modifiers, annotations, or comments.
 
 ## Review only
 
-Review [type/file] for member-ordering issues. Do not edit; report only actionable findings.
+Use the java-member-ordering skill to review [type/file/diff] for member-order issues. Do not edit. Report findings as: file:line, member, expected position.
