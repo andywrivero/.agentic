@@ -1,25 +1,40 @@
 ---
 name: java8-pro
-description: Check or implement Java code for Java 8 source and API compatibility when the project targets JDK 8. Do not use for general Java cleanup or modernization.
+description: Keep Java code compatible with a Java 8 target (source, target, or release 8 / 1.8) and idiomatic for it. Use when adding or changing Java code in a Java 8 project, or when reviewing Java 8 compatibility. Not for modernizing untouched code.
 ---
 
-# Java 8 Compatibility
+# Java 8 Compatibility and Idioms
 
-Owns Java 8 source and standard-library compatibility. It does not own general refactoring, member placement, or Javadoc quality; address those separately only when requested.
+Owns Java 8 language, API, and dependency compatibility, plus Java 8 idioms in code being written or changed. It does not own general refactoring (`auto-simplify`), member placement (`java-member-ordering`), or Javadoc (`javadoc`).
 
-## When it applies
+## Settings
 
-Use when the project targets Java 8 and the task adds or changes Java code, or when Java 8 compatibility is explicitly under review. Confirm the configured source, target, or release level from project configuration where possible. Do not infer compatibility from the installed JDK or package names.
+Resolve each setting from, highest first: the current request; a `java8-pro` entry under `Skill settings` in the project's AGENTS.md or CLAUDE.md; the build configuration; the defaults below.
+
+- `idioms`: `new-code` — apply the idioms below to new or changed code only. Or `compat-only` (enforce compatibility, leave style alone).
+- `verify`: `on-request` — compile or test only when asked. Or `after-edit` (run the project's compile task).
+- `exception-wrapper`: `auto` — reuse the project's own unchecked exception type for checked exceptions in lambdas; fall back to `UncheckedIOException` for `IOException`. Or name a specific class.
+
+## Confirm the target
+
+Read the level from build configuration (`maven.compiler.release`/`source`/`target`, `maven-compiler-plugin`, Gradle `sourceCompatibility`/`options.release`, toolchains). Do not infer it from the installed JDK. If the build uses `source`/`target` 8 without `release` 8 while compiling on JDK 9+, warn that post-8 APIs can still compile and then fail at runtime (for example `ByteBuffer.flip()` returning `ByteBuffer`). Do not change build config unless asked.
 
 ## Compatibility rules
 
-- Do not use language features introduced after Java 8, including local variable type inference, records, text blocks, or pattern matching.
-- Do not use post-Java-8 library APIs such as List.of, Set.of, Map.of, or Stream.toList.
-- Prefer Java 8 APIs only when they suit the requested change and established project style. Preserve existing API and exception contracts.
-- Keep loops when they are clearer than streams. Use java.time or Optional only when suitable to the requested change; do not modernize unrelated code.
-- In lambdas and streams, preserve useful checked-exception context. Do not silently swallow failures.
-- Compose asynchronous work with the project's existing asynchronous API when applicable; do not introduce asynchronous architecture as cleanup.
+- No post-8 language features: `var`, private interface methods, diamond with anonymous classes, effectively-final resources in try-with-resources, switch expressions, text blocks, records, sealed types, pattern matching, modules.
+- No post-8 APIs. Common traps: `List/Set/Map.of`, `copyOf`, `Stream.toList`, `Optional.isEmpty`/`or`/`ifPresentOrElse`/`stream`/no-arg `orElseThrow`, `String.isBlank`/`strip`/`lines`/`repeat`, `Files.readString`, `Path.of`, `InputStream.transferTo`/`readAllBytes`, `Predicate.not`, `java.net.http`. Full list: [references/post-java8-apis.md](references/post-java8-apis.md).
+- New or upgraded dependencies must support a Java 8 runtime. Spring Framework 6 / Boot 3, Hibernate 6, Mockito 5, and many Jakarta EE 9+ libraries do not.
+
+## Idioms for new or changed code
+
+- Lambdas and method references instead of anonymous classes for functional interfaces. Mark custom single-method interfaces `@FunctionalInterface`.
+- Streams for clear filter/map/collect pipelines; keep loops when they are clearer, need early exit, or mutate state. No side effects inside stream operations. Avoid `parallel()` unless measured. Give `Collectors.toMap` a merge function when keys can collide.
+- `Map.computeIfAbsent`, `merge`, `getOrDefault`, and `removeIf` instead of manual check-then-act code.
+- `Optional` only as a return type for a possibly absent result; not for fields, parameters, or collections. Prefer `map`/`orElse`/`orElseGet`/`orElseThrow(supplier)` to `isPresent` + `get`.
+- `java.time` for new date and time code. Convert at the boundary when a legacy API requires `Date` or `Calendar`.
+- Checked exceptions in lambdas: wrap per `exception-wrapper` with the original as the cause. Never swallow them or throw a bare `RuntimeException`.
+- `CompletableFuture`: follow the project's existing async API. Pass an explicit executor for blocking work instead of the common pool. Handle failures with `exceptionally`/`handle`/`whenComplete`.
 
 ## Workflow
 
-Check the target level and only the relevant changed code. Fix or report compatibility issues within the requested scope. Do not add or run tests unless the user asks for testing or verification; when requested, report the exact check and result.
+Confirm the target, then check only the code in scope. Fix compatibility issues in code you are changing; report ones found elsewhere. If `verify` is active, run the project's compile task and report the exact command and result. Otherwise say that compatibility was not compiler-verified.
