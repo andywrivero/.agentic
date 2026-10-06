@@ -1,15 +1,15 @@
 # Auto-Simplify Prompts
 
-Use the auto-simplify skill for behavior-preserving cleanup of changed code.
+Copy one template, fill in the brackets, and paste it. Each one names its skill so the skill loads.
 
 ## Simplify this change
 
-Review and simplify the code changed in [diff/file]. Keep behavior and public contracts unchanged; make only clear, worthwhile edits. Report the changes. Run checks only if I ask.
+Use the auto-simplify skill on the code changed in [this task / the staged diff / branch vs main]. Keep behavior and public contracts unchanged. Summarize each edit in one line.
 
 ## Simplify a specific area
 
-Simplify [class/method/path] for clarity without changing behavior. Keep the edits within that scope and summarize them.
+Use the auto-simplify skill on [class/method/path]. Edit only inside that scope and keep behavior unchanged. Summarize each edit in one line.
 
 ## Review only
 
-Review [diff/file] for worthwhile simplifications. Do not edit; report only concrete findings.
+Use the auto-simplify skill to review [diff/file] for worthwhile simplifications. Do not edit. Report findings as: file:line, issue, suggested change.
