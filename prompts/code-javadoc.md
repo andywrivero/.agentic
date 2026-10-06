@@ -1,15 +1,15 @@
 # Javadoc Prompts
 
-Use the javadoc skill for documentation work only.
+Copy one template, fill in the brackets, and paste it. Each one names its skill so the skill loads.
 
-## Add or update
+## Add or update specific members
 
-Add or update Javadoc for [type/members]. Match the implementation and annotations; change documentation only.
+Use the javadoc skill to add or update Javadoc for [members of type]. Change comments only, and keep them consistent with the actual behavior.
+
+## Document a whole type
+
+Use the javadoc skill to document [type] for callers and maintainers. Cover the type and its members as the skill's visibility setting directs. Do not invent guarantees the code does not provide; list open questions instead.
 
 ## Review only
 
-Review Javadoc in [files/diff] for accuracy and completeness. Do not edit; report actionable findings.
-
-## Document an API type
-
-Document [type] for its users and maintainers. Cover useful contracts and non-obvious behavior without inventing guarantees.
+Use the javadoc skill to review Javadoc in [files/diff] for accuracy, missing contracts, and doclint errors. Do not edit. Report findings as: file:line, issue, suggested text.
