@@ -1,15 +1,19 @@
 # Atomic Ordered Git Commit Prompts
 
-Use the atomic-ordered-git-commits skill for commit planning or execution. Never stage everything at once.
+Copy one template, fill in the brackets, and paste it. Each one names its skill so the skill loads.
 
 ## Plan only
 
-Plan dependency-ordered commits for the current changes. List the scope and exact files or hunks per commit; do not stage or commit.
+Use the atomic-ordered-git-commits skill to plan commits for [all current changes / these paths]. For each commit, list the message, files or hunks, and dependencies. Do not stage or commit.
 
-## Execute
+## Commit current changes
 
-Execute the approved plan [reference plan], or commit the current requested scope in dependency order. Stage only the relevant files or hunks and report the commits and remaining changes.
+Use the atomic-ordered-git-commits skill to commit [all current changes / these paths] as dependency-ordered commits. Report the commits and anything left uncommitted.
+
+## Execute an approved plan
+
+Use the atomic-ordered-git-commits skill to execute the plan above exactly as approved. Stop and ask if the working tree no longer matches it.
 
 ## Review only
 
-Review [plan/commit range] for atomicity and dependency order. Do not stage, rewrite, amend, or create commits; report actionable findings.
+Use the atomic-ordered-git-commits skill to review [plan / commit range, e.g. main..HEAD] for atomicity, dependency order, and message quality. Do not modify history. Report findings as: commit, problem, suggested fix.
