@@ -17,6 +17,7 @@ Each skill has a **Settings** section with defaults. Override them per project b
 - java8-pro: exception-wrapper=com.example.error.ServiceException
 - javadoc: visibility=api, unchecked-marker=on
 - spec-architecture-verification: checkpoint=always, verify=after-edit
+- systematic-debugging: fix=never, max-hypotheses=5
 - tdd-loop: run-scope=full, commit=per-cycle
 - test-backfill: mutation-check=all, on-bug=add-failing
 ```
