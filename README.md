@@ -16,6 +16,7 @@ Each skill has a **Settings** section with defaults. Override them per project b
 - java-member-ordering: method-grouping=functional
 - java8-pro: exception-wrapper=com.example.error.ServiceException
 - javadoc: visibility=api, unchecked-marker=on
+- spec-architecture-verification: checkpoint=always, verify=after-edit
 ```
 
 Precedence, highest first: the current chat request → this block → project tooling config (commitlint, Checkstyle, formatter, build files) → skill defaults. To override one setting for a single request, say so in the prompt, e.g. "…and run the tests after each commit."
