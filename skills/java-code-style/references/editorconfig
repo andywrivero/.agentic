@@ -1,0 +1,30 @@
+# House style for editors. Copy to the project root as .editorconfig only when asked.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.java]
+indent_style = space
+indent_size = 4
+max_line_length = 100
+ij_continuation_indent_size = 8
+ij_java_imports_layout = $*, |, java.**, javax.**, |, *
+ij_java_class_count_to_use_import_on_demand = 999
+ij_java_names_count_to_use_import_on_demand = 999
+ij_java_align_multiline_chained_methods = true
+ij_java_method_call_chain_wrap = on_every_item
+ij_java_binary_operation_sign_on_next_line = true
+ij_java_keep_blank_lines_in_code = 1
+ij_java_keep_blank_lines_in_declarations = 1
+ij_java_blank_lines_after_class_header = 0
+ij_java_blank_lines_before_class_end = 0
+ij_java_if_brace_force = always
+ij_java_for_brace_force = always
+ij_java_while_brace_force = always
+ij_java_doloop_brace_force = always
+ij_java_keep_simple_methods_in_one_line = false
+ij_java_keep_simple_classes_in_one_line = false
