@@ -14,6 +14,7 @@ Each skill has a **Settings** section with defaults. Override them per project b
 - auto-simplify: verify=after-edit
 - java-code-style: line-length=120, verify=after-edit
 - java-dependency-management: new-dependency=allow, vuln-check=always
+- java-logging-exceptions: framework=slf4j, message-style=sentence
 - java-member-ordering: method-grouping=functional
 - java8-pro: exception-wrapper=com.example.error.ServiceException
 - javadoc: visibility=api, unchecked-marker=on
