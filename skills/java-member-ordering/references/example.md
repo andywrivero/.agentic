@@ -4,7 +4,6 @@ Numbered comments map to the class order in SKILL.md and are for illustration on
 
 ```java
 public class OrderService {
-
     // 1. Constants
     private static final int MAX_RETRIES = 3;
 

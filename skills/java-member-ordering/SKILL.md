@@ -27,7 +27,7 @@ Resolve each setting from, highest first: the current request; a `java-member-or
 
 Within each field group, order by visibility (public → private) unless the file groups related fields together. Keep overloads adjacent, ordered by parameter count; with `method-grouping: visibility`, a visibility difference outranks adjacency. With `overrides: last`, put `Object` overrides (`equals`, `hashCode`, `toString`) at the very end of the group. Static methods follow the same visibility groups as instance methods.
 
-Use one blank line between members; related fields may sit together. Do not add section-marker comments.
+Start the first member on the line right after the type's opening brace, with no blank line between them; this applies to every type kind, including nested types. Use one blank line between members; related fields may sit together. Do not add section-marker comments.
 
 ## Other type kinds
 
