@@ -29,6 +29,7 @@ Resolve each setting from, highest first: the current request; a `javadoc` entry
 - Order: `@param <T>` type parameters, `@param` in declaration order, `@return` (omit for `void` and constructors), `@throws`, `@see`, `@since`, `@deprecated`.
 - `@throws`: document checked exceptions and the unchecked exceptions callers can reasonably expect (invalid arguments, illegal state). Do not list every possible runtime exception. Use `@throws`, not `@exception`.
 - `@param`/`@return` text is a lowercase phrase with no trailing period unless it spans sentences.
+- When a comment has several `@param` tags, align their descriptions in one column (`@param id  the identifier` / `@param <T> the identifier type`). Other tags are not aligned.
 - Use `{@code}` for identifiers, literals, and code; `{@link}` for useful cross-references, linking each target only once per comment. Never use `<tt>` or `<code>`.
 - Write HTML that doclint accepts (it fails JDK 8+ builds by default): `<p>` before each new paragraph and never `<p/>`; escape `<`, `>`, `&` outside `{@code}`; close lists and tables.
 - Use `@apiNote`, `@implSpec`, and `@implNote` only if the project's javadoc build defines them.
