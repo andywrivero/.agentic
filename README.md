@@ -13,6 +13,7 @@ Each skill has a **Settings** section with defaults. Override them per project b
 - atomic-ordered-git-commits: message-format=conventional, verify=each-commit
 - auto-simplify: verify=after-edit
 - java-code-style: line-length=120, verify=after-edit
+- java-dependency-management: new-dependency=allow, vuln-check=always
 - java-member-ordering: method-grouping=functional
 - java8-pro: exception-wrapper=com.example.error.ServiceException
 - javadoc: visibility=api, unchecked-marker=on
