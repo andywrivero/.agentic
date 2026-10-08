@@ -13,7 +13,7 @@ Resolve each setting from, highest first: the current request; a `javadoc` entry
 
 - `visibility`: `api-plus-complex` — public and protected members, plus package-private or private members with non-obvious contracts, side effects, or invariants. Or `api` (public and protected only), `all-nontrivial`.
 - `unchecked-marker`: `off`. Set `on` to end every `@throws` description for an unchecked exception with `(unchecked)`.
-- `line-length`: the project formatter's limit; otherwise 100.
+- `line-length`: the project formatter's limit; otherwise `java-code-style`'s `line-length` (100).
 
 ## Content
 
