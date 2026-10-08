@@ -18,6 +18,7 @@ Each skill has a **Settings** section with defaults. Override them per project b
 - javadoc: visibility=api, unchecked-marker=on
 - spec-architecture-verification: checkpoint=always, verify=after-edit
 - tdd-loop: run-scope=full, commit=per-cycle
+- test-backfill: mutation-check=all, on-bug=add-failing
 ```
 
 Precedence, highest first: the current chat request → this block → project tooling config (commitlint, Checkstyle, formatter, build files) → skill defaults. To override one setting for a single request, say so in the prompt, e.g. "…and run the tests after each commit."
