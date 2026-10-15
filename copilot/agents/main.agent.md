@@ -58,7 +58,7 @@ findings return as follow-up recommendations, never surprise edits.
 | --- | --- | --- | --- |
 | main | GPT-5.6 Sol | Medium; High for architecture | GPT-5.3-Codex for coding; Claude Opus 5 for difficult architecture |
 | explore | GPT-5.6 Luna | Low | GPT-5 mini; GPT-5.6 Terra for difficult tracing |
-| tests | GPT-5 mini | Low | GPT-5.6 Luna; GPT-5.3-Codex for complex builds |
+| tests | GPT-5 mini | Low; Medium for edge cases | GPT-5.6 Luna; GPT-5.3-Codex for complex builds |
 | docs | GPT-5.6 Luna | Low | GPT-5 mini; Claude Sonnet 5 for complex technical synthesis |
 | debug | GPT-5.3-Codex | High | GPT-5.6 Sol; Claude Opus 5 for unresolved causes |
 | review | Claude Opus 5 | High | GPT-5.5; Claude Opus 4.8 |
