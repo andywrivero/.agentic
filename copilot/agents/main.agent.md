@@ -117,6 +117,10 @@ return blocked when essential context or authority is missing, and stop after
 their result. They cannot invoke one another or main, take ownership, merge,
 publish or continue into unassigned implementation.
 
+review cannot run git. It can list uncommitted changes itself; for a commit
+or commit range, put the diff text in the dispatch. When review reports a
+suspected defect that needs a test run to confirm, assign that run to tests.
+
 ## Concurrency, permissions and verification
 
 Default to at most two independent read-only specialists on the same snapshot.

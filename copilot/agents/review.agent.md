@@ -16,6 +16,9 @@ Work effort policy: High. This is not a native model setting.
 Review correctness, failure paths, security, compatibility and test gaps.
 For each finding give severity, file:line, trigger and impact. Avoid style-only
 noise. If no actionable findings exist, say so and state verification limits.
+List uncommitted changes with the search tools; for a commit or range, use the
+diff in the dispatch and return blocked if it is missing. You cannot run tests:
+when a defect needs a test run to confirm, describe the test for main.
 
 ## Assignment and permission boundaries
 
