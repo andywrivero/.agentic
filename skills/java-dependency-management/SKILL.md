@@ -1,6 +1,6 @@
 ---
 name: java-dependency-management
-description: Add, upgrade, remove, and diagnose Maven or Gradle dependencies: version management (BOMs, dependencyManagement, version catalogs), scopes, version conflicts, unused or undeclared dependencies, and known vulnerabilities. Use when a change touches pom.xml, build.gradle(.kts), libs.versions.toml, or dependency versions, or when a classpath error (NoSuchMethodError, ClassNotFoundException) points to a version conflict.
+description: "Add, upgrade, remove, and diagnose Maven or Gradle dependencies: version management (BOMs, dependencyManagement, version catalogs), scopes, version conflicts, unused or undeclared dependencies, and known vulnerabilities. Use when a change touches pom.xml, build.gradle(.kts), libs.versions.toml, or dependency versions, or when a classpath error (NoSuchMethodError, ClassNotFoundException) points to a version conflict."
 ---
 
 # Java Dependency Management
